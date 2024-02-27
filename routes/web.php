@@ -14,9 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'welcome')->name('welcome');
+
+Route::get('/chirps', function () {
+    return 'welcome to our chirps page';
+})->name('chirps.index');
+
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
