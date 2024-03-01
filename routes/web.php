@@ -29,8 +29,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/chirps', function () {
-        return 'welcome to our chirps page';
+        //return 'welcome to our chirps page';
+        return view('chirps.index');
     })->name('chirps.index');
+    Route::post('/chirps', function (){
+        $message=request('message');
+    });
 });
 
 require __DIR__.'/auth.php';
